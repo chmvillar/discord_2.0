@@ -1,0 +1,312 @@
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+body, html {
+  height: 100%;
+  background-color: #36393f;
+  color: #dcddde;
+}
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Barra lateral */
+.sidebar {
+  width: 250px;
+  background-color: #2f3136;
+  padding: 20px;
+  border-right: 1px solid #202225;
+}
+.sidebar h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.sidebar ul {
+  list-style: none;
+  margin-bottom: 15px;
+  padding: 0;
+}
+.channel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.channel:hover {
+  background-color: #3a3c43;
+}
+.channel.active {
+  background-color: #3a3c43;
+}
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.delete-btn:hover {
+  opacity: 1;
+}
+.sidebar button {
+  width: 100%;
+  padding: 8px;
+  background-color: #7289da;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.sidebar button:hover {
+  background-color: #677bc4;
+}
+
+/* Área de chat */
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #202225;
+  border-bottom: 1px solid #202225;
+}
+.chat-header h1 {
+  font-size: 20px;
+}
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+#clearBtn, #voiceChatBtn {
+  padding: 6px 12px;
+  background-color: #e67e22;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+#clearBtn:hover, #voiceChatBtn:hover {
+  background-color: #d35400;
+}
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+.message {
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+.message .user {
+  font-weight: bold;
+  margin-right: 5px;
+  color: #7289da;
+}
+.chat-input {
+  padding: 20px;
+  background-color: #40444b;
+}
+.chat-input input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2f3136;
+  color: #dcddde;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+.chat-input input:focus {
+  outline: none;
+  background-color: #3a3c43;
+}
+
+/* Estilos base para todos los modales */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal.show {
+  display: flex;
+}
+.modal-content {
+  background-color: #2f3136;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.modal-content h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+.modal-content p {
+  margin-bottom: 15px;
+  color: #dcddde;
+}
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background-color: #40444b;
+  color: #dcddde;
+}
+.modal-content input:focus {
+  outline: none;
+  background-color: #50575e;
+}
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.modal-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+#modalCreate {
+  background-color: #7289da;
+  color: #fff;
+}
+#modalCancel {
+  background-color: #e74c3c;
+  color: #fff;
+}
+#modalCreate:hover {
+  background-color: #677bc4;
+}
+#modalCancel:hover {
+  background-color: #c0392b;
+}
+#modalClearConfirm {
+  background-color: #e67e22;
+  color: #fff;
+}
+#modalClearCancel {
+  background-color: #e74c3c;
+  color: #fff;
+}
+#modalClearConfirm:hover {
+  background-color: #d35400;
+}
+#modalClearCancel:hover {
+  background-color: #c0392b;
+}
+
+/* Estilos mejorados para el Modal de Chat de Voz */
+#voiceChatModal .modal-content {
+  background: linear-gradient(135deg, #2f3136, #23272a);
+  border: 1px solid #7289da;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 30px 20px 40px 20px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  position: relative;
+  animation: fadeInScale 0.3s ease-out;
+}
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+#voiceChatModal h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+#voiceChatModal p {
+  font-size: 16px;
+  color: #b9bbbe;
+  margin-bottom: 10px;
+}
+#voiceChatModal input {
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #40444b;
+  color: #dcddde;
+  width: calc(100% - 24px);
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s ease;
+}
+#voiceChatModal input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #7289da;
+}
+#voiceChatModal button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+#voiceChatModal button#voiceCallButton {
+  background-color: #7289da;
+  color: #fff;
+}
+#voiceChatModal button#voiceCallButton:hover {
+  background-color: #677bc4;
+}
+#voiceChatModal button#voiceModalClose {
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+#voiceChatModal button#voiceModalClose:hover {
+  background-color: #e74c3c;
+  color: #fff;
+}
+#voiceChatModal audio {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 6px;
+  background-color: #2f3136;
+}

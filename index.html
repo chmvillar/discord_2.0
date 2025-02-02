@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interfaz de Chat con Voz Mejorado</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Cargamos PeerJS para el chat de voz -->
+  <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Barra lateral de canales -->
+    <aside class="sidebar">
+      <h2>Canales</h2>
+      <ul id="channelList">
+        <!-- Se generan dinámicamente -->
+      </ul>
+      <button id="newChannelBtn">Nuevo canal</button>
+    </aside>
+
+    <!-- Área principal del chat -->
+    <main class="chat">
+      <header class="chat-header">
+        <h1 id="chatTitle"></h1>
+        <div class="header-buttons">
+          <button id="clearBtn">Limpiar</button>
+          <button id="voiceChatBtn">Chat de Voz</button>
+        </div>
+      </header>
+      <section class="messages" id="messages">
+        <!-- Mensajes se inyectan dinámicamente -->
+      </section>
+      <footer class="chat-input">
+        <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal para crear un nuevo canal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Crear nuevo canal</h2>
+      <input type="text" id="modalChannelName" placeholder="Nombre del canal">
+      <div class="modal-buttons">
+        <button id="modalCreate">Crear</button>
+        <button id="modalCancel">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para confirmar limpiar chat -->
+  <div id="clearModal" class="modal">
+    <div class="modal-content">
+      <h2>Limpiar Chat</h2>
+      <p>¿Estás seguro de limpiar el chat y borrar los mensajes almacenados para este canal?</p>
+      <div class="modal-buttons">
+        <button id="modalClearConfirm">Limpiar</button>
+        <button id="modalClearCancel">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para el chat de voz con estilo mejorado -->
+  <div id="voiceChatModal" class="modal">
+    <div class="modal-content">
+      <h2>Chat de Voz</h2>
+      <p>Tu ID: <span id="myVoicePeerId">Cargando...</span></p>
+      <input type="text" id="remoteVoicePeerId" placeholder="ID del interlocutor">
+      <button id="voiceCallButton">Llamar</button>
+      <div>
+        <h3 style="margin-top: 20px; font-size: 18px; color: #fff;">Audio Recibido</h3>
+        <audio id="remoteVoiceAudio" controls autoplay></audio>
+      </div>
+      <button id="voiceModalClose">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
